@@ -1,5 +1,6 @@
 import React from "react";
 import '../App.css';
+import cogoToast from 'cogo-toast';
 
 class TextInput extends React.Component {
 
@@ -23,12 +24,16 @@ class TextInput extends React.Component {
       title: value,
       maxChars: this.maxChars - value.length
     })
+
+    
   }
 
   handleSave(){
     if(this.state.title.length > 3){
       this.setState({ title: '', maxChars: this.maxChars })
       this.props.onSave(this.state.title)
+    }else{
+      cogoToast.error('A tarefa deve ter mais de 3 letras...')
     }
   }
 
@@ -39,7 +44,7 @@ class TextInput extends React.Component {
         { this.state.title }
         </textarea>
           <small className="float-left">{ this.state.maxChars } caracteres restantes.</small>
-          <button className="btn btn-primary float-right add-task" disabled={this.state.title.length < 3} onClick={() => this.handleSave()}>Adicionar</button>
+          <button className="btn btn-primary float-right add-task"  onClick={() => this.handleSave()}>Adicionar</button>
       </div>
     )
   }

@@ -35,8 +35,10 @@ class Tasks extends React.Component {
     }
 
     this.setState({
-      tasks: [ ...this.state.tasks, task ]
+      tasks: [ task, ...this.state.tasks ]
     })
+
+    cogoToast.info('Tarefa adicionada')
   }
 
   deleteTask(id){
@@ -44,7 +46,7 @@ class Tasks extends React.Component {
       tasks: [...this.state.tasks.filter((task, index) => index !== id)]
     })
 
-    cogoToast.info('Tarefa deletada')
+    cogoToast.success('Tarefa deletada')
   }
 
   progressTask(id){
