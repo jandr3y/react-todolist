@@ -3,6 +3,8 @@ import '../App.css';
 import TextInput from "../components/TextInput";
 import List from "../components/List";
 import Storage from "../Storage";
+import cogoToast from 'cogo-toast';
+
 
 class Tasks extends React.Component {
 
@@ -28,7 +30,8 @@ class Tasks extends React.Component {
     let task = {
       title: title,
       progress: 0,
-      done: false
+      done: false,
+      date: new Date()
     }
 
     this.setState({
@@ -40,18 +43,23 @@ class Tasks extends React.Component {
     this.setState({
       tasks: [...this.state.tasks.filter((task, index) => index !== id)]
     })
+
+    cogoToast.info('Tarefa deletada')
   }
 
   progressTask(id){
     this.setState({
       tasks: [...this.state.tasks.map((task, index) => (index === id) ? { ...task, progress: task.progress + 25 } : task)]
     })
+
   }
 
   doneTask(id){
     this.setState({
       tasks: [...this.state.tasks.map((task, index) => (index === id) ? {...task, progress: 100, done: true } : task)]
     })
+
+    cogoToast.success('Tarefa completa!')
   }
 
   render(){

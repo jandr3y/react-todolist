@@ -7,10 +7,24 @@ export default class Storage {
     return new Promise((resolve, reject) => {
       let tasks = localStorage.getItem('tasks')
       if(tasks){
-        resolve(JSON.parse(tasks))
+        tasks = JSON.parse(tasks)
+        
+        if(Array.isArray(tasks)){
+          for(let i = 0; i < tasks.length; i++){
+            tasks[i].date = new Date(tasks[i].date);
+          }
+          
+          resolve(tasks)
+        }
+        
+      
       }else{
         reject([])
       }
     })
+  }
+
+  parseDate(){
+
   }
 }

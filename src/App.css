@@ -27,7 +27,38 @@
   margin: 0 5px;
 }
 
+@keyframes taskadd {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.item {
+  opacity: 1;
+  /* transition: all 0.5s cubic-bezier(.36,-0.64,.34,1.76); */
+  animation: taskadd 0.5s ease-in-out;
+}
+
 .done-title {
   font-style: italic;
   color: lightgray;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.title:first-letter,
+.done-title::first-letter {
+  text-transform: capitalize;
+}
+
+time { 
+  font-size: 9pt; 
+  color: #999;
 }
