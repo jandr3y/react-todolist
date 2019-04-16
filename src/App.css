@@ -19,6 +19,15 @@
   margin-top: 20px;
 }
 
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
 .actions button {
   margin: 0 5px;
+}
+
+.done-title {
+  font-style: italic;
+  color: lightgray;
 }
