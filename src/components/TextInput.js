@@ -24,16 +24,24 @@ class TextInput extends React.Component {
       title: value,
       maxChars: this.maxChars - value.length
     })
-
-    
   }
 
+  /**
+   * Função chamada quando clicar em adicionar
+   */
   handleSave(){
     if(this.state.title.length > 3){
+
+      // atualiza este componente
       this.setState({ title: '', maxChars: this.maxChars })
+
+      // chama a função passada no componente pai
       this.props.onSave(this.state.title)
+    
     }else{
+
       cogoToast.error('A tarefa deve ter mais de 3 letras...')
+    
     }
   }
 

@@ -40,7 +40,7 @@ const Item = (props) => (
 class List extends React.Component {
 
   render(){
-
+    // puxa as propriedades do objeto props
     let { data, onDelete, onProgress, onDone } = this.props;
 
     return (
