@@ -26,8 +26,10 @@ class TextInput extends React.Component {
   }
 
   handleSave(){
-    this.setState({ title: '', maxChars: this.maxChars })
-    this.props.onSave(this.state.title)
+    if(this.state.title.length > 3){
+      this.setState({ title: '', maxChars: this.maxChars })
+      this.props.onSave(this.state.title)
+    }
   }
 
   render(){
@@ -37,7 +39,7 @@ class TextInput extends React.Component {
         { this.state.title }
         </textarea>
           <small className="float-left">{ this.state.maxChars } caracteres restantes.</small>
-          <button className="btn btn-primary float-right add-task" onClick={() => this.handleSave()}>Adicionar</button>
+          <button className="btn btn-primary float-right add-task" disabled={this.state.title.length < 3} onClick={() => this.handleSave()}>Adicionar</button>
       </div>
     )
   }

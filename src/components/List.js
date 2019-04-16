@@ -28,10 +28,6 @@ const Item = (props) => (
 
 class List extends React.Component {
 
-  constructor(props){
-    super(props);
-  }
-
   render(){
 
     let { data, onDelete, onProgress, onDone } = this.props;

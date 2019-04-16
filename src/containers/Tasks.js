@@ -2,14 +2,26 @@ import React from "react";
 import '../App.css';
 import TextInput from "../components/TextInput";
 import List from "../components/List";
+import Storage from "../Storage";
 
 class Tasks extends React.Component {
 
   constructor(props){
     super(props);
+    this.storage = new Storage();
+
     this.state = {
       tasks: []
     }
+
+    this.storage.getTasks()
+          .then(tasks => this.setState({ tasks: tasks }))
+          .catch(error => console.error('Nenhuma tarefa salva no LocalStorage'))
+
+  }
+
+  componentDidUpdate(){
+    this.storage.setTasks(this.state.tasks)
   }
 
   newTask(title){
