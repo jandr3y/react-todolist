@@ -9,10 +9,10 @@ Projeto simples para a apresentação de algumas funcionalidades e componentes d
 Primeiro instale o NodeJS (latest)
 
 - Git Clone:
-``` git clone https://github.com/luacks/ReactCasp.git ```
+``` git clone https://github.com/luacks/react-todolist.git ```
 
 - Entrar na pasta
-``` cd ReactCasp ```
+``` cd react-todolist ```
 
 - Instalar dependencias
 ``` npm install ```
