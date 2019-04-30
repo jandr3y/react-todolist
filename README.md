@@ -1,6 +1,8 @@
 # React ToDo List
 
-Projeto para demostração de algumas funcionalidades e componentes da comunidade.
+Projeto simples para a apresentação de algumas funcionalidades e componentes da comunidade.
+
+(sem redux)
 
 ### Instalação
 
